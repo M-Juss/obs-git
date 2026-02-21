@@ -1,43 +1,3 @@
-### Set up DataBinding for much easier and clean binding
-- Go to build.gradle (module:app)
-- inside the android {} put this
-```java
-buildFeatures {  
-    viewBinding true  
-}
-```
-- by this u wont use findById and initialize  components 2 or more times 
-- After adding in gradle,  set up the Activities u need to use example activity who uses binding.
-```java
-
-import  com.example.codefest.databinding.ActivitySigninBinding; // imports
-
-ActivitySigninBinding binding;  // global
-
-binding = ActivitySigninBinding.inflate(getLayoutInflater());  
-setContentView(binding.getRoot()); //inside onCreate()
-
-//usage
-binding.loginButton.setOnClickListener(v -> {  
-    String email = binding.emailInput.getText().toString().trim();  
-    String password = binding.passwordInput.getText().toString().trim();  
-    Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);  
-  
-    if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){  
-        Toast.makeText(this, "All Fields are required!", Toast.LENGTH_SHORT).show();  
-        return;  
-    }  
-    if (checkCredentials){  
-        Toast.makeText(this, "Sign in Successful!", Toast.LENGTH_SHORT).show();  
-        startActivity(new Intent(this, MainActivity.class));  
-        finish();  
-    } else {  
-        Toast.makeText(this, "Wrong Credentials!", Toast.LENGTH_SHORT).show();  
-        return;  
-    }  
-});
-
-```
 
 ### Creating DatabaseHelper
  - Create folder database
@@ -106,59 +66,6 @@ public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 WHEN EDITING / INSERTING  use getWriteableDatabase();
 WHEN READING / CHECKING  user getReadableDatabase();
 
-### Creating Methods SQL Query  
-- datatype must be in boolean so that its much easier to validate
-- uses SQLiteDatabase for database initialization
-- uses ContentValues for passing datas from frontend to db
-- db.insert
--
-```java
-public Boolean insertSomething(String name){
-	SQLiteDatabase db = this.getWritableDatabase();
-	ContentValues cv = new ContentValues();
-	cv.("column_name", parameter);
-	long resut = db.insert("table", null, cv);
-	
-	return != -1; // this will return true if the inserting is sucessfull
-}
-```
-
-### Reading Methods SQL Query
-- datatype must be in boolean so that its much easier to validate
-- uses SQLiteDatabase for database initialization
--  uses Cursor to point out rows in a table 
-- db.rawQuery
-```java
-public Boolean checkEmail(String email){  
-    SQLiteDatabase db = this.getReadableDatabase();  
-    try (Cursor cursor = db.rawQuery(  
-            "SELECT 1 FROM users WHERE email = ?",  
-            new String[]{email})) {  
-  
-        return cursor.moveToFirst(); // if true email has been used.  
-    }  
-    catch (Exception exception){  
-        System.out.println("Error:" + exception);  
-        return false;  
-    }  
-}
-```
-
-```java
-public Boolean checkEmailPassword(String email, String password){  
-    SQLiteDatabase db = this.getReadableDatabase();  
-    try (Cursor cursor = db.rawQuery(  
-            "SELECT 1 FROM users WHERE email = ? and password = ?",  
-            new String[]{email, password})) {  
-  
-        return cursor.moveToFirst(); //If true there credentials are correct  
-    }  
-    catch (Exception exception){  
-        System.out.println("Error:" + exception);  
-        return false;  
-    }  
-}
-```
 
 ### Install  SimpleSQLiteBrowser
 - Go to settings
@@ -189,4 +96,8 @@ public Boolean checkEmailPassword(String email, String password){
 - BLOB - byte
 - INTEGER/NUMERIC (0 = FALSE 1 = TRUE) EX. isActive INTEGER
 - REAL  - big decimal
+- DATETIME - for date
 -  id INTEGER AUTOINCREMENT PRIMARY KEY
+- created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+
+
