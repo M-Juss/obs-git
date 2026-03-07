@@ -7,6 +7,21 @@ ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
                 binding.image.setTag(uri.toString());  
             }  
         });  
+// Launcher 
+// pickImage
+// register
+// startActivity
+// result ->
+// reulst == ok
+// uri
+// get content resolver
+// persistablepermission(uri, intent.flag readpermission)
+// binding setImageUri (uri)
+// binding setTag(uri.toString())
+
+// Intent -> action.getcont
+// intent.setType("image/*")
+
   
 binding.image.setOnClickListener(v -> {  
     Intent intent = new Intent(Intent.ACTION_GET_CONTENT);  

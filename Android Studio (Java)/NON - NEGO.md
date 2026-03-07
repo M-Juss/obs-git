@@ -5,3 +5,7 @@ Nav Helpers
 Binding
 Adapter / Recycler
 Image Laucher 
+
+Need to prepare before starting
+icons
+colors
