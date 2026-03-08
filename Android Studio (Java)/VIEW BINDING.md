@@ -36,3 +36,29 @@ binding.loginButton.setOnClickListener(v -> {
         return;  
     }  
 });
+```
+
+Binding in Fragment
+```java
+import com.example.project2.databinding.FragmentAdminOrderBinding;  
+  
+  
+public class AdminOrderFragment extends Fragment {  
+    FragmentAdminOrderBinding binding;  
+  
+    @Override  
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,  
+                             Bundle savedInstanceState) {  
+      binding = FragmentAdminOrderBinding.inflate(inflater, container, false);  
+  
+        RecyclerView recyclerView = binding.recyclerView;  
+        ArrayList<OrderModel> model = new ArrayList<>();  
+        model.add(new OrderModel(1, "ORD-439943", "pending"));  
+        OrderModelAdapter adapter = new OrderModelAdapter(getContext(), model);  
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));  
+        recyclerView.setAdapter(adapter);  
+  
+        return binding.getRoot();  
+    }  
+}
+```

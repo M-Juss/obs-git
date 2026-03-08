@@ -100,25 +100,23 @@ public Boolean deleteUser(String id) {
 
 ### Returning Models
 ```java
-public Menu viewMenuDetails(int id) {  
-    SQLiteDatabase db = this.getReadableDatabase();  
+public MenuModel getMenu()  
+{  
+    MenuModel menu = new MenuModel();  
+    SQLiteDatabase db = new DatabaseHelper(getApplicationContext()).getReadableDatabase();  
+    Cursor cursor = db.rawQuery("SELECT id, image_path, name, description, price FROM menu WHERE id = " + id, null);  
   
-        Cursor cursor = db.rawQuery(  
-                "SELECT id, name, description, price, image_path FROM menu WHERE id = ?",  
-                new String[]{String.valueOf(id)}  
+    if (cursor.moveToFirst()) {  
+        return new MenuModel(  
+                cursor.getInt(0),  
+                cursor.getString(1),  
+                cursor.getString(2),  
+                cursor.getString(3),  
+                cursor.getDouble(4)  
         );  
+    }  
   
-        if (cursor != null && cursor.moveToFirst()) {  
-            Menu menu = new Menu(  
-                    cursor.getInt(0),  
-                    cursor.getString(1),  
-                    cursor.getString(2),  
-                    cursor.getInt(3),  
-                    cursor.getString(4)  
-            );  
-            return menu;  
-        }  
-        else return  null;    
+    return menu;  
 }
 ```
 
