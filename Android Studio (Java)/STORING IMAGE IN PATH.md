@@ -7,6 +7,7 @@ ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
                 binding.image.setTag(uri.toString());  
             }  
         });  
+        
 // Launcher 
 // pickImage
 // register
@@ -24,9 +25,7 @@ ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
 
   
 binding.image.setOnClickListener(v -> {  
-    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);  
-    intent.setType("image/*");  
-    pickImage.launch(intent);  
+    pickImage.launch(new Intent(Intent.ACTION_GET_CONTENT). setType("image/*");  
 });
 
 FOR STORING 
