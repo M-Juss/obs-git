@@ -1,41 +1,14 @@
-### FOR IMAGE CONVERSION
-  ```java
-import android.graphics.Bitmap;  
-import android.graphics.BitmapFactory;  
-import android.util.Base64;  
-  
-import java.io.ByteArrayOutputStream;  
-public class ImageHelper {  
-  
-    public static String bitmapToString(Bitmap bitmap) { // store image  
-        if (bitmap == null) return null;  
-  
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();  
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos);  
-        byte[] bytes = baos.toByteArray();  
-        return Base64.encodeToString(bytes, Base64.DEFAULT);  
-    }  
-  
-    public static Bitmap stringToBitmap(String encodedString) { // read image  
-        if (encodedString == null) return null;  
-  
-        byte[] bytes = Base64.decode(encodedString, Base64.DEFAULT);  
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);  
-    }  
-}
-  
-  ```
-
-
 ### FOR NAVIGATING
 ```java
 public class NavHelper {  
-  
-    public static void navigate(Context context, Class<?> destination){  
+    public static void navigate(Context context, Class<?> destination)  
+    {  
         context.startActivity(new Intent(context, destination));  
     }  
-    public static void toMainDashboard(Context context){  
-        navigate(context, MainActivity.class);  
+  
+    public static void navigate(Context context, Class<?> destination, int id)  
+    {  
+        context.startActivity(new Intent(context, destination).putExtra("id", id));  
     }  
 }
 ```
@@ -53,8 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;  
   
 public class SessionHelper {  
-    public  static  final  String USER_FOLDER = "user_session";  
-    public  static  final  String KEY_USER = "KEY_USER";  
+    public  static  final  String USER_SESSION = "user_session";   
   
     public  static void setUser(Context context, UserModel user){  
         JSONObject json = new JSONObject();  
@@ -65,8 +37,9 @@ public class SessionHelper {
             json.put("password", user.getPassword());  
             json.put("role", user.getRole());  
   
-            SharedPreferences sharedPreferences = context.getSharedPreferences(USER_FOLDER, Context.MODE_PRIVATE);  
-            sharedPreferences.edit().putString(KEY_USER, json.toString()).apply();  
+            SharedPreferences sharedPreferences = context.getSharedPreferences(USER_SESSION, Context.MODE_PRIVATE);  
+            sharedPreferences.edit().putString(USER_SESSION, json.toString()).apply();  
+            
         } catch (JSONException e) {  
             throw new RuntimeException(e);  
         }  

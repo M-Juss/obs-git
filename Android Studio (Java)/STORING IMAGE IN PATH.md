@@ -20,13 +20,16 @@ ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
 // binding setImageUri (uri)
 // binding setTag(uri.toString())
 
-// Intent -> action.getcont
-// intent.setType("image/*")
+
 
   
 binding.image.setOnClickListener(v -> {  
     pickImage.launch(new Intent(Intent.ACTION_GET_CONTENT). setType("image/*");  
 });
+
+// Intent -> action.getcont
+// intent.setType("image/*")
+
 
 FOR STORING 
 values.put("image_path", binding.image.getTag().toString());  

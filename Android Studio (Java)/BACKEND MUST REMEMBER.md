@@ -98,6 +98,6 @@ WHEN READING / CHECKING  user getReadableDatabase();
 - REAL  - big decimal
 - DATETIME - for date
 -  id INTEGER AUTOINCREMENT PRIMARY KEY
-- created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+- created_at DATE DEFAULT CURRENT_DATE
 
 
