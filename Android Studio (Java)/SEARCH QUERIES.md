@@ -1,4 +1,4 @@
-public ArrayList<UserModel> searchUsers(String keyword){
+public ArrayList<UserModel> searchUsers(String keyword){// trigger might trigger in a button click or search
 
     ArrayList<UserModel> list = new ArrayList<>();
     SQLiteDatabase db = this.getReadableDatabase();
