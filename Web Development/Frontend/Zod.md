@@ -59,7 +59,7 @@ expor const Name = z.string().min(2, " Name must be at least 2 charss ");
 ```java
 // form.common.ts
 import { z } from "zod";
-import { Email, Password } from "./common.schema";
+import { Email, Password, Name } from "./common.schema";
 
 /** Login */
 export const LoginSchema = z.object({
@@ -69,7 +69,7 @@ export const LoginSchema = z.object({
 
 /** Register */
 export const RegisterSchema = z.object({
-  name: z.string().min(3),
+  name: Name
   email: Email,
   password: Password,
   confirmPassword: z.string(),
@@ -86,3 +86,5 @@ export const RegisterSchema = z.object({
 export type LoginData = z.infer<typeof LoginSchema>;
 export type RegisterData = z.infer<typeof RegisterSchema>;
 });
+
+
