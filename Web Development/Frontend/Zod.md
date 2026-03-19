@@ -27,10 +27,12 @@ z.number().int()
 z.number().positive()
 z.number().negative()
 ```
-### Booleans | Dates | Optional Most Common
+### Booleans | Enum | Dates | Optional Most Common
 
 ``` java
 z.boolean()
+
+z.enum(["ADMIN", "USER"]),
 
 z.date()
 z.string().datetime() // ISO string
