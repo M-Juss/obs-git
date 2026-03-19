@@ -43,3 +43,15 @@ z.string().nullish()    // null + undefined
 z.string().default("N/A")
 ```
 
+## Usage
+```java
+// This 
+import { z } from "zod";
+
+/** Reusable Fields */
+export const Email = z.string().email("Invalid email");
+export const Password = z.string().min(8, "Password must be at least 8 chars");
+
+
+});
+```
