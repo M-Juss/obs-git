@@ -94,5 +94,48 @@ export type RegisterFormData = z.infer<typeof RegisterSchema>;
 });
 ```
 
-```type
+```typescript
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { RegisterSchema, RegisterFormData } from "@/schemas/form.schema";
+
+export default function RegisterForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(RegisterSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<RegisterFormData> = (data) => {
+    console.log("Typed Data:", data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name")} placeholder="Name" />
+      {errors.name?.message && <p>{errors.name.message}</p>}
+
+      <input {...register("email")} placeholder="Email" />
+      {errors.email?.message && <p>{errors.email.message}</p>}
+
+      <input {...register("password")} type="password" />
+      {errors.password?.message && <p>{errors.password.message}</p>}
+
+      <input {...register("confirmPassword")} type="password" />
+      {errors.confirmPassword?.message && (
+        <p>{errors.confirmPassword.message}</p>
+      )}
+
+      <button type="submit">Register</button>
+    </form>
+  );
+}
 ```
