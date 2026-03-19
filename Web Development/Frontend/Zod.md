@@ -17,14 +17,22 @@ z.string().uuid()
 z.string().regex(/^[A-Z]+$/)
 z.string().trim()
 ```
-### Strings Most Common
+### Numbers Most Common
 
 ``` java
-z.string()
-z.string().min(3)
-z.string().max(100)
-z.string().email()
-z.string().url()
-z.string().uuid()
-z.string().regex(/^[A-Z]+$/)
-z.string().trim()
+z.number()
+z.number().min(0)
+z.number().max(100)
+z.number().int()
+z.number().positive()
+z.number().negative()
+```
+### Booleans | Dates | Optional Most Common
+
+``` java
+z.boolean()
+z.date()
+z.string().datetime() // ISO string
+z.number().int()
+z.number().positive()
+z.number().negative()
