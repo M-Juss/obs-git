@@ -45,13 +45,13 @@ z.string().default("N/A")
 
 ## Usage
 ```java
-// This 
+// common.schema.ts
 import { z } from "zod";
 
 /** Reusable Fields */
 export const Email = z.string().email("Invalid email");
 export const Password = z.string().min(8, "Password must be at least 8 chars");
-
+expor const Name = z.string().min(3)
 
 });
 ```
