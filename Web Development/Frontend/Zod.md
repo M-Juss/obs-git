@@ -86,5 +86,5 @@ export const RegisterSchema = z.object({
 export type LoginData = z.infer<typeof LoginSchema>;
 export type RegisterData = z.infer<typeof RegisterSchema>;
 });
-
+```
 
