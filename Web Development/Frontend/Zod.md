@@ -44,6 +44,7 @@ z.string().default("N/A")
 ```
 
 ## Usage
+
 ```java
 // common.schema.ts
 import { z } from "zod";
@@ -51,7 +52,37 @@ import { z } from "zod";
 /** Reusable Fields */
 export const Email = z.string().email("Invalid email");
 export const Password = z.string().min(8, "Password must be at least 8 chars");
-expor const Name = z.string().min(3)
-
+expor const Name = z.string().min(2, " Name must be at least 2 charss ");
 });
 ```
+
+```java
+// form.common.ts
+import { z } from "zod";
+import { Email, Password } from "./common.schema";
+
+/** Login */
+export const LoginSchema = z.object({
+  email: Email,
+  password: Password,
+});
+
+/** Register */
+export const RegisterSchema = z.object({
+  name: z.string().min(3),
+  email: Email,
+  password: Password,
+  confirmPassword: z.string(),
+}).superRefine((data, ctx) => {
+  if (data.password !== data.confirmPassword) {
+    ctx.addIssue({
+      path: ["confirmPassword"],
+      message: "Passwords do not match",
+      code: z.ZodIssueCode.custom,
+    });
+  }
+});
+
+export type LoginData = z.infer<typeof LoginSchema>;
+export type RegisterData = z.infer<typeof RegisterSchema>;
+});
