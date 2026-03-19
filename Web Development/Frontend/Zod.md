@@ -31,8 +31,13 @@ z.number().negative()
 
 ``` java
 z.boolean()
+
 z.date()
 z.string().datetime() // ISO string
-z.number().int()
-z.number().positive()
-z.number().negative()
+
+z.string().optional()   // undefined allowed
+z.string().nullable()   // null allowed
+z.string().nullish()    // null + undefined
+z.string().default("N/A")
+```
+
