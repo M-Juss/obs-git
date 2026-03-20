@@ -1,6 +1,8 @@
 ## Nextjs setup
 `pnpm create-next-app@latest --frontend`
 
+
+
 ## Laravel setup
 laravel new api-backend
 
