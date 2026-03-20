@@ -1,7 +1,11 @@
 ## Nextjs setup
 `pnpm create-next-app@latest --frontend`
 
-
+`pnpm dlx shadcn@latest init`
+`pnpm dlx shadcn@latest add button card`
+`pnpm add zod`
+`pnpm install lucide-react`
+pnpm add react-hook-form
 
 ## Laravel setup
 laravel new api-backend
