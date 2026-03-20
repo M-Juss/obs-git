@@ -21,3 +21,12 @@ laravel new api-backend
 Creating model 
 php artisan make:model Product -m 
 this one creates model and migration
+![[Pasted image 20260320113636.png]]
+
+after that 
+php artisan migrate
+
+![[Pasted image 20260320113758.png]]
+
+php artisan install:api
+
