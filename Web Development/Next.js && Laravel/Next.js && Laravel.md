@@ -37,3 +37,4 @@ php artisan migrate
 
 php artisan install:api
 
+![[Pasted image 20260320181833.png]]
