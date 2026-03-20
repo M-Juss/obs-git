@@ -6,6 +6,7 @@
 `pnpm add zod`
 `pnpm install lucide-react`
 pnpm add react-hook-form
+ pnpm add @hookform/resolvers
 
 ## Laravel setup
 laravel new api-backend
