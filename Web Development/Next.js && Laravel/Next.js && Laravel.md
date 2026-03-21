@@ -16,6 +16,11 @@ laravel new api-backend
 - no npm build
 -  set databsae in xampp and php myadmiin
 
+Laravel Script CheatSheet
+	-  php artisan serve
+	- php artisan route:list
+	- php artisan migrate:fresh
+	- php artisan make:model ModelName
 ### Laravel Code base
 - Controller
 	- AuthController - > Login, Register, Profile, Logout API
