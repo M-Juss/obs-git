@@ -9,6 +9,13 @@ pnpm add react-hook-form
  pnpm add @hookform/resolvers
 
 ## Laravel setup
+composer
+php
+
+php install
+composer install
+	composer global require laravel/installer
+
 laravel new api-backend
 
 - mysql

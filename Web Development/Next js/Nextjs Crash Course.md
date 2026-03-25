@@ -5,7 +5,7 @@
  - use src/directory
  - use App Router (folder routing)
  - use turbo pack (for speed of the app)
- -  Forimporting alises use default
+ -  For importing alises use default
 
 ## Understanding Folder Structure
 - tsconfig.json - every package in typescript
@@ -24,7 +24,7 @@
 
 ## Setting up routing and navigation
 - File based routing - Where in the Folder will be its route and inside the folder will be its page.tsx
-- Using <Link/> -Link tag is same as the a tag syntax: <Link href={/contact}> `<Link href={/router}>Contact </Link>`
+- Using <Link/> -Link tag is same as the a tag syntax: <Link href={/contact}> `<Link href={/router}>Contact</Link>`
 
 
 ## Working with image 
