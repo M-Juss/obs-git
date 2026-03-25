@@ -14,20 +14,20 @@ php
 
 php install
 composer install
-	composer global require laravel/installer
+composer global require laravel/installer
 
 laravel new api-backend
 
 - mysql
 - yes database
 - no npm build
--  set databsae in xampp and php myadmiin
+-  set database in Herd MYSQL WorkBench and HErd
 
 Laravel Script CheatSheet
-	-  php artisan serve
-	- php artisan route:list
-	- php artisan migrate:fresh
-	- php artisan make:model ModelName
+	-  php artisan serve - Runs the server
+	- php artisan route:list - show all running routes
+	- php artisan migrate:fresh - reset all the schemas inforamtion
+	- php artisan make:model ModelName -mcr - this makes a migration, controller, and its registration
 ### Laravel Code base
 - Controller
 	- AuthController - > Login, Register, Profile, Logout API
