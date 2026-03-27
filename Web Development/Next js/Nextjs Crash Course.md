@@ -80,3 +80,38 @@ They must include:
 ## not-found.tsx
 ## Loading.tsx
 ## error.tsx
+
+
+
+layout.tsx handles a children which is the page.tsx and run it in the browser.
+
+RSC - React Server Components
+- Server components
+	- all next.js are server by default
+	- have the ability to run, read and fetch data from the database
+	- can't handle user interaction and hooks
+- Client components
+	- to use "use client"; needed
+	- manage user interaction and hooks
+
+File System Routing Mechanism
+- All routes must inside the app folder
+- All file correspond to route must name page.tsx
+- All folder corresponds to a path segmentin the browser url
+
+![[Screenshot 2026-03-26 at 10.27.57 PM.png]]
+
+![[Screenshot 2026-03-26 at 10.30.33 PM.png|279]]
+
+![[Screenshot 2026-03-26 at 10.31.28 PM.png|470]]![[Screenshot 2026-03-26 at 10.33.08 PM.png|269]]![[Screenshot 2026-03-26 at 10.34.21 PM.png|556]]![[Screenshot 2026-03-26 at 10.46.34 PM.png|403]]![[Screenshot 2026-03-26 at 10.46.50 PM.png|379]]
+
+NESTED DYNAMIC ROUTE - Dynamic Route inseide the Dynamic Route
+![[Screenshot 2026-03-26 at 10.50.57 PM.png|285]]
+
+Catch-all Segment - Basically match all the routes pointing to its parent folder.
+![[Screenshot 2026-03-27 at 11.08.16 AM.png|420]]![[Screenshot 2026-03-27 at 11.08.25 AM.png|497]]![[Screenshot 2026-03-27 at 11.08.41 AM.png|414]]
+
+### not-found.tsx - a default page when  the app or a specific path doesn't created yet
+
+### Route Groups - this excludes its parent folder in the route![[Screenshot 2026-03-27 at 8.13.26 PM.png|384]]
+/auth doesnt need to typed in the url
