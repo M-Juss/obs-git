@@ -21,7 +21,7 @@ laravel new api-backend
 - mysql
 - yes database
 - no npm build
--  set database in Herd MYSQL WorkBench and HErd
+-  set database in Herd MYSQL WorkBench and HErd![[Screenshot 2026-03-30 at 9.36.20 AM.png]]
 
 Laravel Script CheatSheet
 	-  php artisan serve - Runs the server
@@ -34,7 +34,7 @@ Laravel Script CheatSheet
 - API 
 	- READ, CREATE, UPDATE, DELETE
 - Sanctum - authentication 
-- api.php
+- api.php![[Screenshot 2026-03-30 at 9.36.20 AM.png]]
 - cors.php
 
 Creating model 
@@ -43,10 +43,10 @@ this one creates model and migration
 ![[Pasted image 20260320113636.png]]
 
 after that 
-php artisan migrate
+php artisan migrate![[Screenshot 2026-03-30 at 9.36.20 AM.png]]
 
 ![[Pasted image 20260320113758.png]]
 
 php artisan install:api
-
-![[Pasted image 20260320181833.png]]![[Pasted image 20260320182601.png]]
+![[Screenshot 2026-03-30 at 9.36.20 AM.png]]
+![[Pasted image 20260320181833.png]]![[Pasted image 20260320182601.png]]![[Screenshot 2026-03-30 at 9.34.02 AM.png]]![[Screenshot 2026-03-30 at 9.36.20 AM.png]]![[Screenshot 2026-03-30 at 9.39.05 AM.png]]![[Pasted image 20260330095749.png]]
