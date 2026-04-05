@@ -112,3 +112,38 @@ $u = User::find(id);
 $u->name = 'updated_value';
 $u->save();
 
+### Laravel Breeze -  gives the ability to scaffold the project with authentication into different technologies.
+ - composer require laravel/breeze --dev
+ - php artisan breeze:install
+ -  API Only
+ - PEST
+ - Yes to migration
+
+### 2 Authentication using Sanctum
+1. Fully Token-based auth
+2. Session & Cookie-based auth
+By default Sanctum support all of it. 
+
+### How to issue Token? 
+- add "HasApiToken" in User Model
+- in LoginController initialize createToken in store()
+```php
+public function store(LoginRequest $request): array{
+	$request->authenticate();
+	$user = $request->user();
+	$token = $user->createToken('auth_token')->plainTextToken;
+
+	return [
+	'user' => new UserResource($user),
+	'token' => $token,
+	];
+}
+```
+- Now in every endpoint put it in the protection of auth:sanctum
+```php
+Route::middleware('auth:sanctum')->group(function () {
+	Route::prefix('v1')->group(function(){
+		Route::apiResource('post', V1PostController::class);	
+	});
+});
+```
