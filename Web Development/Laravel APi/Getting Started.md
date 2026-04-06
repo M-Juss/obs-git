@@ -147,3 +147,16 @@ Route::middleware('auth:sanctum')->group(function () {
 	});
 });
 ```
+
+
+### Rate Limiting - this ensures that the request is safe from spams as it is protected by number of request only
+
+1. Add it to the middleware
+	- Route::post('/login', [LoginController::class, 'store'])->middleware(['auth:sanctum', 'throttle:6,1'])
+	-The in this throttle is suggets 6 request per minute.
+
+2. Add it to the AppServiceProvide.php inside the boot()
+	- RateLimiter::for('api', function(Request $request)){
+	
+	}
+
