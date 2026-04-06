@@ -52,7 +52,11 @@ Route::put('/post/{id}', [PostController::class, 'update'])
 Route::delete('/post/{id}', [PostController::class, 'destroy'])
 
 ### To shortcut all of this use this line instead
-Route::apiResource('/post', PostController::class);
+`Route::apiResource('/post', PostController::class);`
+
+### Use apiResoure however use specific method only
+`Route::apiResource('/post', PostController::class)
+	->only(['index', 'store']);`
 
 ### Creating a Model with Migration
 - php artisan make:model PostModel -m
@@ -151,21 +155,26 @@ Route::middleware('auth:sanctum')->group(function () {
 
 ### Rate Limiting - this ensures that the request is safe from spams as it is protected by number of request only
 
-1. Add it to the middleware
+#### Scenario 1 - Group routes with the same rate limiting
 ```php
- Route::post('/login', [LoginController::class, 'store'])
-	 ->middleware(['auth:sanctum', 'throttle:6,1']); //this throttle suggets 6 request per minute.
+Route::middleware(['auth:sanctum', 'throttle:30,1'])->group(function () {
+	Route::prefix('v1')->group(function(){
+		Route::apiResource('post', V1PostController::class);
+	});
+	});
 ```
 
-2. Add it to the AppServiceProvide.php inside the boot()
- ```php
-	 RateLimiter::for('api', function(Request $request)){
-	 return Limit::perMinute(30)->by($request->user()?->id ?: $request->ip())
-	 } // their are any other option like perDay, perSecond, perHour, perMinutes
-	 
-	 
-	 // Usage in api.php
-	 Route::middleware('auth:sanctum', 'throttle:api')
-	
-	 ```
- 
+#### Scenario 2 - Different rate limiting per endpoints
+```php
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('v1')->group(function(){
+        // Stricter limit for store
+        Route::post('post', [V1PostController::class, 'store'])
+            ->middleware('throttle:10,1');
+
+        // More relaxed limit for index
+        Route::get('post', [V1PostController::class, 'index'])
+            ->middleware('throttle:60,1');
+    });
+});
+```
