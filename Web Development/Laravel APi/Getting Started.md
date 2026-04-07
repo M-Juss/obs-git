@@ -178,3 +178,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 });
 ```
+
+
+
+### Scenario (Changing Database and Fields)
+##### In Backend
+- Change columns in Migration
+- Change the model fields
+- Change the Controller / Requests and methods
+##### In Frontend
+- Change the validation fields in ZOD
+- Change the argument on api method calling
