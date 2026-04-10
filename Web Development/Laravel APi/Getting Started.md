@@ -1,7 +1,9 @@
 Make sure to have this installed to your device:
-php
-composer
-laravel
+- php
+- composer
+- laravel
+
+---
 
 ### To Create
 1. laravel new name-of-your-choice
@@ -9,20 +11,48 @@ laravel
 3. Framework - Pest
 4. Database - MySQL / SQLite
 5. NPM Build - No (since were going to use LARAVEL as API only)
-
 ### After Creating moved on to your folder.
 -  php artisan serve (runs the server)
 
-### Install Laravel Breeze - Contains Sanctum and everything you need  in Laravel API
+---
+
+### Laravel Flow 
+**Migration** - Create table in actual Database
+- php artisan make:migration sample_table
+
+**Model** - Identifies fields of a subject
+- php artisan make:model SampleModel
+
+**Request** - anticipate fields required from the data retrieved in the frontend
+- php artisan make:request SampleRequest
+
+**Resource** - Format a specific data an use it to show an organize result
+- php artisan make:resource SampleResource
+
+**Factory** - Creates random datas
+- php artisan make:factory SampleFactory
+
+**Seed** - Seed the data into the data base
+- php artisan make:factory SampleSeed
+
+**Route** - Way for the Frontend and Backend to communicate
+
+---
+
+### Install API Breeze - Contains Sanctum and everything you need  in Laravel API
 - php artisan install:api
 - keep default installation
 - this creates api.php in routes and sanctum and default endpoints
+
+---
 
 ### artisan - is a command line tool that gives you ability to perform laravel various task / create, migrate, install and everything
 ### routes.php
 	 - this will define all the routes or endpoints containing functions
 	 - Sometimes linked through Controllers
 	 - middleware sanctum js simply means accessing endpoint inside it requires authorization and not publicaly accessible
+
+---
 
 ### Tinker - execute laravel in terminal and works with the database
  - php artisan tinker
@@ -33,6 +63,14 @@ laravel
 	 -$user-> new User::where('email' -> 'example@gmail.com') -> first();
 	 - $user -> delete();
 
+### Tinker  - a helpful library to do schemas inside the terminal 
+User::create(['column' => 'value', 'column' => 'value' 'password' => bcrypt('')]);
+User::find(id);
+$u = User::find(id);
+$u->name = 'updated_value';
+$u->save();
+
+---
 
 ### Creating Controller 
 - php artisan make:controller PostController --api
@@ -68,6 +106,8 @@ Model ahs
 - Saves all databases scheme changes. 
 - up() method all the changes 
 - down() method reverted all the changes
+
+---
 
 ### Creating a Request class
  - php artisan make:request PostRequest
@@ -109,13 +149,6 @@ public function toArray(Request $request): array{
 }}
 ```
 
-### Tinker  - a helpful library to do schemas inside the terminal 
-User::create(['column' => 'value', 'column' => 'value' 'password' => bcrypt('')]);
-User::find(id);
-$u = User::find(id);
-$u->name = 'updated_value';
-$u->save();
-
 ### Laravel Breeze -  gives the ability to scaffold the project with authentication into different technologies.
  - composer require laravel/breeze --dev
  - php artisan breeze:install
@@ -123,10 +156,14 @@ $u->save();
  - PEST
  - Yes to migration
 
+---
+
 ### 2 Authentication using Sanctum
 1. Fully Token-based auth
 2. Session & Cookie-based auth
 By default Sanctum support all of it. 
+
+---
 
 ### How to issue Token? 
 - add "HasApiToken" in User Model
@@ -152,6 +189,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 ```
 
+---
 
 ### Rate Limiting - this ensures that the request is safe from spams as it is protected by number of request only
 
@@ -179,7 +217,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 ```
 
-
+---
 
 ### Scenario (Changing Database and Fields)
 ##### In Backend
