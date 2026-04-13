@@ -29,6 +29,9 @@ Make sure to have this installed to your device:
 **Resource** - Format a specific data an use it to show an organize result
 - php artisan make:resource SampleResource
 
+**Controller** - Handles the functionality on how he data is going to be handled
+- php artisan make: model SampleModel
+
 **Factory** - Creates random datas
 - php artisan make:factory SampleFactory
 
