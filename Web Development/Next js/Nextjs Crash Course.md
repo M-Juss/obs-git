@@ -1,4 +1,4 @@
- pnpm create-next-app@latest
+npx create-next-app@latest
  - use typescript
  - use ESlint
  - use Tailwind

@@ -1,12 +1,15 @@
 ## Nextjs setup
-`pnpm create-next-app@latest --frontend`
+npx create-next-app@latest --frontend  
+  
+npx shadcn@latest init  
+npx shadcn@latest add button card  
+  
+npm install zod  
+npm install lucide-react  
+npm install react-hook-form  
+npm install @hookform/resolvers
 
-`pnpm dlx shadcn@latest init`
-`pnpm dlx shadcn@latest add button card`
-`pnpm add zod`
-`pnpm install lucide-react`
-pnpm add react-hook-form
- pnpm add @hookform/resolvers
+npm install @fontsource/inter
 
 ## Laravel setup
 composer
