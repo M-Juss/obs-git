@@ -6,7 +6,7 @@ npx shadcn@latest add button card
   
 npm install zod  
 npm install lucide-react  
-npm install react-hook-form  
+npm install react-hook-form  laralve
 npm install @hookform/resolvers
 
 npm install @fontsource/inter
