@@ -2,11 +2,11 @@
 npx create-next-app@latest --frontend  
   
 npx shadcn@latest init  
-npx shadcn@latest add button card  
+npx shadcn@latest add label input select dialog
   
 npm install zod  
 npm install lucide-react  
-npm install react-hook-form  laralve
+npm install react-hook-form 
 npm install @hookform/resolvers
 
 npm install @fontsource/inter
