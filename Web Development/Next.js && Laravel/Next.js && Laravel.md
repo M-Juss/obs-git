@@ -2,7 +2,7 @@
 npx create-next-app@latest --frontend  
   
 npx shadcn@latest init  
-npx shadcn@latest add label input select dialog
+npx shadcn@latest add label input select dialog sonner
   
 npm install zod  
 npm install lucide-react  
