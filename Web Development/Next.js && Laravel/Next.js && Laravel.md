@@ -3,7 +3,7 @@ npx create-next-app@latest --frontend
   
 npx shadcn@latest init  
 npx shadcn@latest add button card  
-  
+
 npm install zod  
 npm install lucide-react  
 npm install react-hook-form  
@@ -18,6 +18,11 @@ php
 php install
 composer install
 composer global require laravel/installer
+
+composer require laravel/fortify
+composer require laravel/sanctum
+php artisan config:publish cors
+php artisan install:api
 
 laravel new api-backend
 

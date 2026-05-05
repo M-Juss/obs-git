@@ -230,3 +230,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 ##### In Frontend
 - Change the validation fields in ZOD
 - Change the argument on api method calling
+
+
+### When cloning a project with a Laravel backend command needed are
+`composer install`
+- copy .env.example and create .env
+`php artisan key:generate`
+- configure your database credentials 
