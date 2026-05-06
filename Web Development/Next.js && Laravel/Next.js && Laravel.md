@@ -1,13 +1,14 @@
 ## Nextjs setup
 npx create-next-app@latest --frontend  
-  
 npx shadcn@latest init  
-<<<<<<< HEAD
-npx shadcn@latest add button card  
 
-=======
+npm install zod  
+npm install lucide-react  
+npm install react-hook-form 
+npm install @hookform/resolvers
+
+npx shadcn@latest add button card  
 npx shadcn@latest add label input select dialog sonner
-  
 
 npm install @fontsource/inter
 
