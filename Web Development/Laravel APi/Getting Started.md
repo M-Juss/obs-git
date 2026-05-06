@@ -237,3 +237,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 - copy .env.example and create .env
 `php artisan key:generate`
 - configure your database credentials 
+
+
+
+Migration
+Model
+Request
+Resource
+ApiTrait
+Controller
